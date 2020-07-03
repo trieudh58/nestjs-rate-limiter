@@ -94,6 +94,7 @@ let RateLimiterInterceptor = class RateLimiterInterceptor {
             let points = this.options.points;
             let pointsConsumed = this.options.pointsConsumed;
             let keyPrefix = this.options.keyPrefix;
+            let message = this.options.message;
             const reflectedOptions = this.reflector.get('rateLimit', context.getHandler());
             if (reflectedOptions) {
                 if (reflectedOptions.points) {
@@ -110,6 +111,9 @@ let RateLimiterInterceptor = class RateLimiterInterceptor {
                     if (context.getHandler()) {
                         keyPrefix += `-${context.getHandler().name}`;
                     }
+                }
+                if (reflectedOptions.message) {
+                    message = reflectedOptions.message;
                 }
             }
             const rateLimiter = yield this.getRateLimiter(keyPrefix, reflectedOptions);
@@ -132,7 +136,7 @@ let RateLimiterInterceptor = class RateLimiterInterceptor {
                 response.status(429).json({
                     statusCode: common_1.HttpStatus.TOO_MANY_REQUESTS,
                     error: 'Too Many Requests',
-                    message: reflectedOptions.message || 'Rate limit exceeded.',
+                    message: message || 'Rate limit exceeded.',
                 });
             }
         });
