@@ -80,6 +80,7 @@ export class RateLimiterInterceptor implements NestInterceptor {
         let points: number = this.options.points;
         let pointsConsumed: number = this.options.pointsConsumed;
         let keyPrefix: string = this.options.keyPrefix;
+        let message: string = this.options.message;
 
         const reflectedOptions: RateLimiterModuleOptions = this.reflector.get<RateLimiterModuleOptions>(
             'rateLimit',
@@ -103,6 +104,10 @@ export class RateLimiterInterceptor implements NestInterceptor {
                 if (context.getHandler()) {
                     keyPrefix += `-${context.getHandler().name}`;
                 }
+            }
+
+            if (reflectedOptions.message) {
+                message = reflectedOptions.message;
             }
         }
 
@@ -131,7 +136,7 @@ export class RateLimiterInterceptor implements NestInterceptor {
             response.status(429).json({
                 statusCode: HttpStatus.TOO_MANY_REQUESTS,
                 error: 'Too Many Requests',
-                message: reflectedOptions.message || 'Rate limit exceeded.',
+                message: message || 'Rate limit exceeded.',
             });
         }
     }
