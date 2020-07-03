@@ -131,7 +131,7 @@ export class RateLimiterInterceptor implements NestInterceptor {
             response.status(429).json({
                 statusCode: HttpStatus.TOO_MANY_REQUESTS,
                 error: 'Too Many Requests',
-                message: 'Rate limit exceeded.',
+                message: reflectedOptions.message || 'Rate limit exceeded.',
             });
         }
     }
