@@ -1,0 +1,99 @@
+{
+  "_from": "https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+  "_id": "nestjs-rate-limiter@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-JoPxfP0OzpfgeTqaYjaHemQjlwNwEaL62SeEecQ4fn6Rxz789HDisVjuNBXFrnyLuAVbcLsSRQgToumN5P8jSw==",
+  "_location": "/nestjs-rate-limiter",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "nestjs-rate-limiter@https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+    "name": "nestjs-rate-limiter",
+    "escapedName": "nestjs-rate-limiter",
+    "rawSpec": "https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+    "saveSpec": "https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+    "fetchSpec": "https://github.com/trieudh58/nestjs-rate-limiter/tarball/master"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+  "_shasum": "350902d190a03f76507b32fcc7a439dcafe4da68",
+  "_spec": "nestjs-rate-limiter@https://github.com/trieudh58/nestjs-rate-limiter/tarball/master",
+  "_where": "C:\\Users\\dangt\\Desktop\\be-rework",
+  "author": {
+    "name": "Ryan Dowling",
+    "email": "ryan@ryandowling.me"
+  },
+  "bugs": {
+    "url": "https://github.com/RyanTheAllmighty/nestjs-rate-limiter/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "rate-limiter-flexible": "^1.0.2"
+  },
+  "deprecated": false,
+  "description": "A configurable rate limiter for NestJS",
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@nestjs/common": "^6.3.1",
+    "@nestjs/core": "^6.3.1",
+    "@types/jest": "^24.0.15",
+    "husky": "^2.4.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.2.1",
+    "np": "^5.0.3",
+    "prettier": "^1.18.2",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.3",
+    "rxjs": "^6.5.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "homepage": "https://github.com/RyanTheAllmighty/nestjs-rate-limiter#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "keywords": [
+    "nestjs",
+    "nest",
+    "rate",
+    "limit"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add -f"
+    ]
+  },
+  "name": "nestjs-rate-limiter",
+  "peerDependencies": {
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanTheAllmighty/nestjs-rate-limiter.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prebuild": "rimraf dist/",
+    "prepublishOnly": "npm run build",
+    "release": "np",
+    "test": "jest --passWithNoTests"
+  },
+  "version": "1.0.1"
+}
