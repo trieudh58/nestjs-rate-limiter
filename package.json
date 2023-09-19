@@ -76,7 +76,7 @@
       "git add -f"
     ]
   },
-  "name": "@trieudh/nestjs-rate-limiter",
+  "name": "@trieudh58/nestjs-rate-limiter",
   "peerDependencies": {
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0"
